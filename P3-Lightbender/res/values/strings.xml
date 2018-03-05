@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">"Lightbender "</string>
+    <string-array
+        name="string_array_name">
+        <item
+            >"Starlight"</item>
+          <item
+              >"Twilight"</item>
+          <item
+              >Overcast Day</item>
+          <item
+              >Full Daylight</item>
+    </string-array>
+
+</resources>
