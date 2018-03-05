@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">WeatherStation</string>
+    <string name="DIALOG_MESSAGE">Choose API retriving method</string>
+    <string name="DIALOG_TITLE">API Configuration</string>
+    <string name="VOLLEY_RETRIVER">Volley</string>
+    <string name="ASYNC_RETRIVER">Async</string>
+</resources>
