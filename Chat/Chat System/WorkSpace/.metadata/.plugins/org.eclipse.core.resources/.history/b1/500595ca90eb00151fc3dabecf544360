@@ -1,0 +1,105 @@
+package p3;
+
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
+
+import p3.Message.MessageType;
+
+
+/**
+ * (Client) Representerar en klient som kan koppla upp sig till servern.
+ * 
+ * @author Ludwig
+ *
+ */
+public class Client {
+	private String username;
+	private int port;
+	private String server;
+	private Socket socket;
+	private ObjectInputStream ois;
+	private ObjectOutputStream oos;
+	private ClientGUI clientGUI;
+	private int id = -1;
+
+	public Client(String username, String server, int port) {
+		this.username = username;
+		this.server = server;
+		this.port = port;
+		clientGUI = new ClientGUI(username);
+
+		try {
+			socket = new Socket(server, port);
+			oos = new ObjectOutputStream(socket.getOutputStream());
+			ois = new ObjectInputStream(socket.getInputStream());
+		} catch (Exception e) {
+
+		}
+
+		new Listener().start();
+		
+		if(id == -1) {
+			try {
+				oos.writeObject(username);
+				oos.flush();
+				id = (int) ois.readObject();
+				System.out.print(id);
+			} catch (IOException | ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	private class Listener extends Thread {
+		public void run() {
+			while (true) {
+				try {
+					message = (Message) ois.readObject();
+				} catch (IOException e) {
+					serverGUI.appendEvent(e.getMessage());
+					break;
+				} catch (ClassNotFoundException e) {
+					break;
+				}
+
+				String receivedMessage = message.getMessage();
+				switch (message.getType()) {
+				case Chat: {
+					// logik h�r
+					break;
+				}
+				case Command: {
+
+					break;
+				}
+				case Private: {
+					// tex till aListClient id = ??
+					break;
+				}
+				case Group: {
+
+					break;
+				}
+				case Server: {
+
+					break;
+				}
+				default:
+					break;
+				}
+			}
+	}
+	
+	
+	public void writeMessage(Message message) {
+		try {
+			oos.writeObject(message);
+			oos.flush();
+		} catch(Exception e) { 
+			clientGUI.appendChat("Message failed to send Message");
+		}
+	}
+
+}
