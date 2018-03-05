@@ -1,0 +1,42 @@
+package Assignment1;
+
+import javax.swing.*;
+import java.util.Random;
+
+/**
+ * Created by ludwi on 15/11/2016.
+ */
+public class ThreadText extends Thread {
+
+    private Random rand = new Random();
+    private boolean threadStopText;
+    private GUIDualThreads gui;
+    private JLabel label;
+
+    public ThreadText(GUIDualThreads gui,JLabel label) {
+        this.gui=gui;
+        this.label=label;
+
+    }
+
+    @Override
+    public void run() {
+        while (threadStopText) {
+
+            try {
+                this.sleep(200);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            label.setLocation(rand.nextInt(203), rand.nextInt(220));
+
+        }
+    }
+
+    public void setThreadStopText(boolean threadStopText) {
+        this.threadStopText = threadStopText;
+    }
+
+}
+
+
