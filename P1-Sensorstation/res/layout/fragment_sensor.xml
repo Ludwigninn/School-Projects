@@ -1,0 +1,74 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=""
+
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Information"
+        android:textSize="14dp"
+        android:layout_margin="5dp"
+        android:textColor="@color/Black"
+        android:id="@+id/tvInformation"
+        />
+    <TextView
+        android:id="@+id/tvTimeStamp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="0.0"
+        android:textColor="@color/Black"
+        android:layout_margin="5dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Values"
+        android:textSize="14dp"
+        android:layout_margin="5dp"
+        android:textColor="@color/Black"
+        android:id="@+id/tvValuesText"
+        />
+
+    <TextView
+        android:id="@+id/tvValues"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@color/Black"
+        android:layout_margin="5dp"
+        />
+
+
+    <TextView
+        android:id="@+id/tvTitleaccuracy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Accuracy"
+        android:textColor="@color/Black"
+        android:layout_margin="5dp"
+        />
+    <TextView
+        android:id="@+id/tvValueAccuracy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@color/Black"
+        android:layout_margin="5dp"
+        />
+
+    <Switch
+        android:textOn="On"
+        android:textOff="Off"
+        android:id="@+id/switchReg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       />
+
+
+</LinearLayout>
